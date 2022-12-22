@@ -2,7 +2,11 @@
 {% block mainbody %}
     <h3>This is the main text area for the Index page </h3>
     <br>Parameters were passed:
-    <br>{{ params }}
+        <ul>
+            {% for (k, v) in params.items() %}
+                <li>{{ k }}: {{ v }}</li>
+            {% endfor %}
+        </ul>
     <br>
     <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
     <br>Quod ut ipsa illo eveniet temporibus in nulla ducimus, 

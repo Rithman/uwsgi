@@ -2,5 +2,9 @@
 {% block mainbody %}
     <h3>Requested page not found</h3>
     <br>Parameters were passed:
-    <br>{{ params }}
+        <ul>
+        {% for (k, v) in params.items() %}
+            <li>{{ k }}: {{ v }}</li>
+        {% endfor %}
+        </ul>
 {% endblock mainbody %}

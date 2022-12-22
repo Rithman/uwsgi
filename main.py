@@ -44,7 +44,7 @@ class Application:
             params = environ['QUERY_STRING'].split("&")
             res_dict = {k: v for k, v in (el.split("=") for el in params)}
         else:
-            res_dict = None
+            res_dict = {}
         return res_dict
 
 
