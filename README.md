@@ -1,0 +1,1 @@
+Start aplication: *gunicorn main:app*
