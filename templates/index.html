@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% block mainbody %}
+    <p><h3>This is the main text area for the Index page </h3></p>
+    <br>Parameters were passed: 
+        <ul>
+            {% for (k, v) in get_params.items() %}
+                <li>{{ k }}: {{ v }}</li>
+            {% endfor %}
+        </ul
+    <p><label for="category" class="title">Select category: </label>
+        <select name="category" id="category">
+            <option value="electric">Electric Guitars</option>
+            <option value="accustic">Accustic Guitars</option>
+            <option value="bass">Bass Guitars</option>
+        </select></p>
+        <form action="" method="post">
+			<fieldset>
+				<legend>Registration</legend>
+				<p><label class="title" for="name">Your name:</label>
+					 <input type="text" name="name" id="name"><br />
+					 <label class="title" for="email">Your email:</label>
+					 <input type="text" name="email" id="email"></p>
+				<p><label for="location" class="title">Nearest shop:</label>
+					 <select name="location" id="location">
+						 <option value="maincity">Maincity</option>
+						 <option value="middlecity">Middlecity</option>
+						 <option value="undercity">Undercity</option>
+					 </select></p>
+				<span class="title">Already our customer?</span>
+				<label><input type="radio" name="member" value="yes" /> Yes</label>
+				<label><input type="radio" name="member" value="no" /> No</label></p>
+			</fieldset>
+ 	    <div class="submit"><input type="submit" value="Register" /></div>
+		</form>
+
+
+
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <br>Quod ut ipsa illo eveniet temporibus in nulla ducimus, 
+    <br>impedit quam fugit aliquam sapiente dicta repudiandae 
+    <br>corporis eligendi optio itaque consequatur laudantium?
+    </p>
+{% endblock mainbody %} 

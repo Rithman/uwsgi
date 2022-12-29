@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block mainbody %}
+    <h3>Requested page not found</h3>
+    <br>Parameters were passed:
+        <ul>
+        {% for (k, v) in get_params.items() %}
+            <li>{{ k }}: {{ v }}</li>
+        {% endfor %}
+        </ul>
+{% endblock mainbody %}
