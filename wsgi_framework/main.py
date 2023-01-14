@@ -1,3 +1,4 @@
+from quopri import decodestring
 
 
 class Framework:
@@ -33,7 +34,7 @@ class Framework:
         post_length_data = environ.get('CONTENT_LENGTH')
         post_length = int(post_length_data) if post_length_data else 0
         post_data = environ['wsgi.input'].read(post_length).decode('utf-8') if post_length > 0 else 0
-        return self.parse_params(get_data), self.parse_params(post_data)
+        return self.decode_value(self.parse_params(get_data)), self.decode_value(self.parse_params(post_data))
 
 
     @staticmethod
@@ -44,3 +45,12 @@ class Framework:
             params_dict = {k: v for k, v in (el.split("=") for el in elements)}
         return params_dict
 
+
+    @staticmethod
+    def decode_value(data):
+        new_data = {}
+        for k, v in data.items():
+            val = bytes(v.replace('%', '=').replace("+", " "), 'utf-8')
+            val_decode_str = decodestring(val).decode('utf-8')
+            new_data[k] = val_decode_str
+        return new_data
